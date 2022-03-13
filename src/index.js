@@ -1,6 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import '@atlaskit/css-reset'
 
-const App = () => 'Hello World'
+import initialData from './initial-data'
+import Column from './column'
+
+class App extends React.Component {
+  state = initialData
+
+  render() {
+    return this.state.columnOrder.map((columnId) => {
+      const column = this.state.columns[columnId]
+      const proposals = column.proposalIds.map((proposalId) => this.state.proposals[proposalId])
+
+      return <Column key={column.id} column={column} proposals={proposals} />
+    })
+  }
+}
 
 ReactDOM.render(<App />, document.getElementById('root'))
