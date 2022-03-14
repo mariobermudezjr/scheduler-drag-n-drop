@@ -10,6 +10,34 @@ const Container = styled.div`
 
 export default class Proposal extends React.Component {
   render() {
-    return <Container>{this.props.proposal.content}</Container>
+    const {
+      projectType,
+      numPanel,
+      brandPanel,
+      numMicro,
+      brandInverter,
+      proposalUrl,
+      customerName,
+      crewDate,
+      crewName,
+      projectAddress,
+      customerConfirmed,
+      crewConfirmed,
+    } = this.props.proposal
+    return (
+      <Container>
+        {projectType} {numPanel}
+        {brandPanel}
+        {numMicro}
+        {brandInverter}
+        {proposalUrl}
+        {customerName}
+        {crewDate}
+        {crewName}
+        {projectAddress}
+        {customerConfirmed}
+        {crewConfirmed}
+      </Container>
+    )
   }
 }
